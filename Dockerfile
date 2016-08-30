@@ -25,7 +25,7 @@ RUN /bin/bash -c 'pushd /tmp/lcm; ./bootstrap.sh; ./configure --prefix=/usr; mak
 
 RUN set -x \
 && git clone https://github.com/attie/libxbee3.git /tmp/libxbee3 \
-&& ( cd /tmp/libxbee3  && git checkout ) \
+&&  cd /tmp/libxbee3  && git checkout  \
 && cd /tmp/libxbee3 && make configure && make install \
 && rm -rf /tmp/libxbee
 
@@ -38,12 +38,12 @@ RUN git clone https://github.com/jeguzzi/gps_umd.git ~/catkin_ws/src/gps_umd
 
 
 RUN set -x \
-&& git clone https://github.com/EduardoFF/nccr_manet.git ~/catkin_ws/src/nccr_manet \
-&& ( cd ~/catkin_ws/src/nccr_manet  && git checkout ) 
+&& git clone https://github.com/EduardoFF/nccr_manet.git ~/catkin_ws/src/nccr_manet 
+&& cd ~/catkin_ws/src/nccr_manet  && git checkout 
 
 RUN set -x \
 && git clone https://github.com/EduardoFF/nccr_manet_msgs.git ~/catkin_ws/src/nccr_manet_msgs \
-&& ( cd ~/catkin_ws/src/nccr_manet_msgs  && git checkout ) 
+&& cd ~/catkin_ws/src/nccr_manet_msgs  && git checkout 
 
 #RUN git clone https://github.com/EduardoFF/nccr_manet.git ~/catkin_ws/src/nccr_manet
 #RUN git clone https://github.com/EduardoFF/nccr_manet_msgs.git ~/catkin_ws/src/nccr_manet_msgs
