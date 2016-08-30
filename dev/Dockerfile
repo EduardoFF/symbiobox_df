@@ -47,7 +47,7 @@ RUN /bin/sed -i \
     /ros_entrypoint.sh
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
-CMD ["bash"]
+#CMD ["bash"]
 
 RUN /bin/bash -c '. /opt/ros/jade/setup.bash; catkin_make -j1 -C ~/catkin_ws'
 

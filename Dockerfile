@@ -37,8 +37,16 @@ RUN /bin/bash -c '. /opt/ros/jade/setup.bash; catkin_init_workspace ~/catkin_ws/
 RUN git clone https://github.com/jeguzzi/gps_umd.git ~/catkin_ws/src/gps_umd
 
 
-RUN git clone https://github.com/EduardoFF/nccr_manet.git ~/catkin_ws/src/nccr_manet
-RUN git clone https://github.com/EduardoFF/nccr_manet_msgs.git ~/catkin_ws/src/nccr_manet_msgs
+RUN set -x \
+&& git clone https://github.com/EduardoFF/nccr_manet.git ~/catkin_ws/src/nccr_manet \
+&& ( cd ~/catkin_ws/src/nccr_manet  && git checkout ) 
+
+RUN set -x \
+&& git clone https://github.com/EduardoFF/nccr_manet_msgs.git ~/catkin_ws/src/nccr_manet_msgs \
+&& ( cd ~/catkin_ws/src/nccr_manet_msgs  && git checkout ) 
+
+#RUN git clone https://github.com/EduardoFF/nccr_manet.git ~/catkin_ws/src/nccr_manet
+#RUN git clone https://github.com/EduardoFF/nccr_manet_msgs.git ~/catkin_ws/src/nccr_manet_msgs
 
 
 RUN /bin/bash -c '. /opt/ros/jade/setup.bash; catkin_make -j1 -C ~/catkin_ws'
