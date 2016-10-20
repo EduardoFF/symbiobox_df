@@ -1,0 +1,1 @@
+docker run -it --rm --net=host --privileged -v /home/eduardo/mygit/nccr_manet:/home/root/catkin_ws/src/nccr_manet -v /home/eduardo/mygit/nccr_manet_msgs:/home/root/catkin_ws/src/nccr_manet_msgs symbiobox/dev /bin/bash

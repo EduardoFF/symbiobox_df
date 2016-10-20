@@ -19,9 +19,19 @@ RUN apt-get update && apt-get install -y \
     libgoogle-glog-dev \
     && rm -rf /var/lib/apt/lists/*
 
+
+
 RUN mkdir -p /tmp
-RUN git clone https://github.com/lcm-proj/lcm /tmp/lcm
-RUN /bin/bash -c 'pushd /tmp/lcm; ./bootstrap.sh; ./configure --prefix=/usr; make; make install; popd; rm -r /tmp/lcm'
+RUN set -x \
+&& cd /tmp \
+&& git clone --branch v1.3.1 https://github.com/lcm-proj/lcm.git \
+&& ( cd lcm && git checkout ) \
+&& cd lcm && ./bootstrap.sh \
+&& ./configure --prefix=/usr/ && make install \
+&& cd ../ && rm -rf lcm \
+&& echo "/usr/lib" >> /etc/ld.so.conf.d/lib.conf \
+&& ldconfig
+
 
 RUN set -x \
 && git clone https://github.com/attie/libxbee3.git /tmp/libxbee3 \
@@ -38,7 +48,7 @@ RUN git clone https://github.com/jeguzzi/gps_umd.git ~/catkin_ws/src/gps_umd
 
 
 RUN set -x \
-&& git clone https://github.com/EduardoFF/nccr_manet.git ~/catkin_ws/src/nccr_manet 
+&& git clone https://github.com/EduardoFF/nccr_manet.git ~/catkin_ws/src/nccr_manet \
 && cd ~/catkin_ws/src/nccr_manet  && git checkout 
 
 RUN set -x \
