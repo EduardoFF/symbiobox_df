@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY video_stream.sh /home/root/
 
+RUN chmod +x /home/root/video_stream.sh
 
 ENTRYPOINT ["/home/root/video_stream.sh"]
 CMD ["bash"]
