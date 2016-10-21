@@ -13,4 +13,5 @@ RUN apt-get update && apt-get install -y \
 COPY video_stream.sh /home/root/
 
 
-ENTRYPOINT ["video_stream.sh"]
+ENTRYPOINT ["/home/root/video_stream.sh"]
+CMD ["bash"]
