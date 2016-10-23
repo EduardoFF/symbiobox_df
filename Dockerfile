@@ -48,8 +48,8 @@ RUN git clone https://github.com/jeguzzi/gps_umd.git ~/catkin_ws/src/gps_umd
 
 
 RUN set -x \
-&& git clone https://github.com/EduardoFF/nccr_manet.git ~/catkin_ws/src/nccr_manet \
-&& cd ~/catkin_ws/src/nccr_manet  && git checkout 
+&& git clone https://github.com/EduardoFF/nccr-manet.git ~/catkin_ws/src/nccr_manet \
+&& cd ~/catkin_ws/src/nccr_manet  && git checkout 0e85911  
 
 RUN set -x \
 && git clone https://github.com/EduardoFF/nccr_manet_msgs.git ~/catkin_ws/src/nccr_manet_msgs \
