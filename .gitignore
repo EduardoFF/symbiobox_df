@@ -31,3 +31,5 @@ build*
 *.app
 
 *.pyc
+
+myid.sh
